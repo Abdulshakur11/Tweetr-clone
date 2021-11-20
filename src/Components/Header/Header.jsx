@@ -1,15 +1,15 @@
-import { NavLink, useHistory } from "react-router-dom";
+import { Link, NavLink, useHistory } from "react-router-dom";
 import site_logo from "../../images/site-logo.svg";
-import avatar from "../../images/boburaka.png"
-import "./Header.scss"
+import avatar from "../../images/boburaka.png";
+import "./Header.scss";
 import useAuth from "../../Hooks/useAuth";
 
 function Header() {
   const [token] = useAuth();
-  const email = window.localStorage.getItem("email")
+  const email = window.localStorage.getItem("email");
   const history = useHistory();
   function clearLocalStorije() {
-    window.localStorage.clear('');
+    window.localStorage.clear("");
     history.push("/login");
   }
 
@@ -32,15 +32,23 @@ function Header() {
               </NavLink>
             </li>
             <li className="btn">
-              <a href="/" className="header__item-btn" onClick={clearLocalStorije}>
+              <a
+                href="/"
+                className="header__item-btn"
+                onClick={clearLocalStorije}
+              >
                 LogOut
               </a>
             </li>
             <li className="header-avatar-item">
-              <img className="header-avatar" src={avatar} alt="avatar" />
+              <Link to="/profile">
+                <img className="header-avatar" src={avatar} alt="avatar" />
+              </Link>
               <div>
-                <h5 className="avatar-name">{token.name}</h5>
-                <a className="avatar-email" href="/">{email}</a>
+                <Link to="/profile" className="avatar-name">{token.name}</Link>
+                <a className="avatar-email" href="/">
+                  {email}
+                </a>
               </div>
             </li>
           </ul>

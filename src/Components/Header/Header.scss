@@ -97,12 +97,14 @@
 }
 
 .avatar-name {
+  display: block;
   font-style: normal;
   font-weight: 600;
   font-size: 16px;
   line-height: 21px;
   margin: 0;
   color: #000000;
+  text-decoration: none;
 }
 
 .avatar-email {

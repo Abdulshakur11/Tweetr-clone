@@ -12,7 +12,6 @@ import "./Posts.scss";
 function Posts() {
   const [token] = useAuth()
   const { userId } = useParams();
-  console.log(userId);
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
