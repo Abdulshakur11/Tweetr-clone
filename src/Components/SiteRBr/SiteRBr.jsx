@@ -14,10 +14,10 @@ function SiteRightBr({ children }) {
   }, []);
 
   const serachUser = data.filter((val) => {
-    if (searchTem === "") {
+    if (searchTem == "") {
       return null;
-    } else if (val.username.toLowerCase().includes(searchTem.toLowerCase()));
-     return val;
+    } else if (val.username.toLowerCase().includes(searchTem.toLowerCase()))
+      return val;
   });
 
   return (
@@ -74,16 +74,9 @@ function SiteRightBr({ children }) {
           {serachUser.map((user) => {
             return (
               <li className="bar__users-item" key={user.id}>
-                <Link className="avatar-img" to={`/users/${user.id}`}>
-                  {user.username[0]}
-                </Link>
+                <Link className="avatar-img" to={`/users/${user.id}`}>{user.username[0]}</Link>
                 <div className="bar__users-item-user-name-wrapper">
-                  <Link
-                    className="bar__users-item-user-name"
-                    to={`/users/${user.id}`}
-                  >
-                    {user.username}
-                  </Link>
+                  <Link className="bar__users-item-user-name" to={`/users/${user.id}`}>{user.username}</Link>
                   <a href="/" className="bar__users-item-user-email">
                     {user.email}
                   </a>
